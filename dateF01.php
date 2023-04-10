@@ -1,23 +1,7 @@
 <?php
 session_start();
 ?>
-<?php
-    try {
-        echo ""; 
-    } catch (DivisionByZeroError $e) {
-        echo "Oops I divided by zero!";
-    } catch (Exception $e) { //Throwable
-        echo $e->getMessage();
-    } finally {
-        
-        ?>
-        <script>
-          alert("...done!");
-        </script>
 
-    <?php
-    }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,16 +29,31 @@ session_start();
 <body>
 <br><br>
 <br><br>
+<?PHP
+if ($_POST['name']){
+    $name = $_POST['name'];
+}else{
+    ?>
+    <script>
+      alert("กรุณากรอกชื่อสกุล!");
+    </script>
+
+<?php
+//    header ("location: index.php");
+//    exit(0);
+}
+
+?>
 <div align="center">
         <div class="row">
             <div class="col-4">   </div>
             <h5>ชื่อ-สกุล : <br>
             <?php 
-                $name = $_POST['name'];
                 echo $name ; 
                 ?> 
         </h5>
 </div>
+
 
 <br>
     <div align="center">
@@ -87,6 +86,21 @@ session_start();
     <br>
 <div align="center">
 <h5>
+<?PHP
+if ($_POST['num']){
+    $num = $_POST['num'];
+}else{
+    ?>
+    <script>
+      alert("กรุณากรอกเกรดเพื่อคำนวณ");
+    </script>
+
+<?php
+//    header ("location: index.php");
+//    exit(0);
+}
+
+?>
 <?php 
 $num = $_POST['num'];
 
